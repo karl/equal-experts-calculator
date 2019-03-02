@@ -6,9 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Equal Experts Calculator</h1>
-        <div>
-          Calculator goes here
-        </div>
+        <div>Calculator goes here</div>
       </div>
     );
   }

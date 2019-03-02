@@ -14,6 +14,7 @@ yarn start
 ## Build
 
 ```
+yarn lint
 yarn build
 ```
 
