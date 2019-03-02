@@ -57,4 +57,46 @@ describe('Calculator', () => {
     press('=');
     expectResult('3');
   });
+
+  it('can handle multiple digit numbers', () => {
+    press('4');
+    press('3');
+    press('2');
+    press('+');
+    press('1');
+    press('2');
+    press('3');
+    press('=');
+    expectResult('555');
+  });
+
+  it('allows changing of the operator', () => {
+    press('4');
+    press('-');
+    press('+');
+    press('3');
+    press('=');
+    expectResult('7');
+  });
+
+  it('an operator after a value implicitly calculates intermediate result', () => {
+    press('4');
+    press('-');
+    press('3');
+    press('+');
+    expectResult('1');
+    press('5');
+    press('=');
+    expectResult('6');
+  });
+
+  it('resets all state on clear', () => {
+    press('4');
+    press('+');
+    press('C');
+    expectResult('0');
+    press('3');
+    press('=');
+    expectResult('3');
+  });
 });
