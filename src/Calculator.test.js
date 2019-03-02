@@ -71,12 +71,12 @@ describe('Calculator', () => {
   });
 
   it('allows changing of the operator', () => {
-    press('4');
+    press('8');
     press('-');
     press('+');
-    press('3');
+    press('9');
     press('=');
-    expectResult('7');
+    expectResult('17');
   });
 
   it('an operator after a value implicitly calculates intermediate result', () => {
@@ -98,5 +98,25 @@ describe('Calculator', () => {
     press('3');
     press('=');
     expectResult('3');
+  });
+
+  it('treats divide by 0 as Infinity', () => {
+    press('7');
+    press('/');
+    press('0');
+    press('=');
+    expectResult('Infinity');
+  });
+
+  it('handles negative results', () => {
+    press('2');
+    press('-');
+    press('9');
+    press('=');
+    expectResult('-7');
+    press('-');
+    press('3');
+    press('=');
+    expectResult('-10');
   });
 });
