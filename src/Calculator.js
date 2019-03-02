@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import './Calculator.css';
 
 const doCalculation = ({ result, op, value }) => {
   if (value === '') {
@@ -65,30 +66,11 @@ export const Calculator = () => {
   const display = state.value === '' ? state.result : state.value;
 
   return (
-    <div>
-      <div data-testid="display">{display}</div>
-      <div>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '0' })}>
-          0
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '1' })}>
-          1
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '2' })}>
-          2
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '3' })}>
-          3
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '4' })}>
-          4
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '5' })}>
-          5
-        </button>
-        <button onClick={() => dispatch({ type: 'VALUE', value: '6' })}>
-          6
-        </button>
+    <div className="calculator">
+      <div className="display" data-testid="display">
+        {display}
+      </div>
+      <div className="buttons">
         <button onClick={() => dispatch({ type: 'VALUE', value: '7' })}>
           7
         </button>
@@ -98,17 +80,43 @@ export const Calculator = () => {
         <button onClick={() => dispatch({ type: 'VALUE', value: '9' })}>
           9
         </button>
+        <br />
+        <button onClick={() => dispatch({ type: 'VALUE', value: '4' })}>
+          4
+        </button>
+        <button onClick={() => dispatch({ type: 'VALUE', value: '5' })}>
+          5
+        </button>
+        <button onClick={() => dispatch({ type: 'VALUE', value: '6' })}>
+          6
+        </button>
+        <br />
+        <button onClick={() => dispatch({ type: 'VALUE', value: '1' })}>
+          1
+        </button>
+        <button onClick={() => dispatch({ type: 'VALUE', value: '2' })}>
+          2
+        </button>
+        <button onClick={() => dispatch({ type: 'VALUE', value: '3' })}>
+          3
+        </button>
+        <br />
+        <button onClick={() => dispatch({ type: 'VALUE', value: '0' })}>
+          0
+        </button>
+        <br />
         <button onClick={() => dispatch({ type: 'OP', value: '+' })}>+</button>
         <button onClick={() => dispatch({ type: 'OP', value: '-' })}>-</button>
         <button onClick={() => dispatch({ type: 'OP', value: '*' })}>*</button>
         <button onClick={() => dispatch({ type: 'OP', value: '/' })}>/</button>
         <button onClick={() => dispatch({ type: 'OP', value: '=' })}>=</button>
+        <br />
         <button onClick={() => dispatch({ type: 'CLEAR' })}>C</button>
       </div>
-      <div>
+      {/* <div>
         <p>Debug</p>
         <pre>{JSON.stringify(state, null, 2)}</pre>
-      </div>
+      </div> */}
     </div>
   );
 };
